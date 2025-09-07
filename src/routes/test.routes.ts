@@ -1,9 +1,17 @@
 import { Router } from "express";
 import { TestController } from "../controllers/test.controller";
 
-const router = Router();
-const testController = new TestController();
+export class TestRoutes {
+  public router: Router;
+  private testController: TestController;
 
-router.get("/test", testController.getTestMessage);
+  constructor() {
+    this.router = Router();
+    this.testController = new TestController();
+    this.initializeRoutes();
+  }
 
-export default router;
+  private initializeRoutes(): void {
+    this.router.get("/test", this.testController.getTestMessage);
+  }
+}

@@ -1,11 +1,11 @@
 import express from "express";
-import testRoutes from "./routes/test.routes";
+import { TestRoutes } from "./routes/test.routes";
 
 const app = express();
 
 app.use(express.json());
 
-// Mount routes
-app.use("/", testRoutes);
+const testRoutes = new TestRoutes();
+app.use("/", testRoutes.router);
 
 export default app;

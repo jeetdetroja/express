@@ -1,4 +1,3 @@
-// DTO = Data Transfer Object
 export class TestResponseDto {
   success: boolean;
   message: string;
